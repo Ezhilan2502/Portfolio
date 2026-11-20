@@ -1,0 +1,403 @@
+
+/* =========================================
+   1. GOOGLE FONTS
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================
+   2. ROOT VARIABLES - DARK THEME
+========================================= */
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+
+  --bg-primary: #080b14;
+  --bg-secondary: #0d1220;
+  --bg-tertiary: #111827;
+
+  --card-bg: rgba(17, 24, 39, 0.78);
+  --card-hover: #151e30;
+
+  --text-primary: #f4f6fc;
+  --text-secondary: #a0a9bb;
+  --text-muted: #718096;
+
+  --accent-color: #8b5cf6;
+  --accent-secondary: #06b6d4;
+  --accent-light: rgba(139, 92, 246, 0.13);
+
+  --border-color: rgba(148, 163, 184, 0.14);
+  --navbar-bg: rgba(8, 11, 20, 0.86);
+
+  --gradient-primary: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  --gradient-text: linear-gradient(90deg, #a78bfa, #22d3ee);
+
+  --shadow-card: 0 15px 45px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 35px rgba(139, 92, 246, 0.15);
+
+  --transition: all 0.3s ease;
+
+  color-scheme: dark;
+}
+
+
+/* =========================================
+   3. LIGHT THEME
+========================================= */
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+
+  --card-bg: #ffffff;
+  --card-hover: #f8fafc;
+
+  --text-primary: #172033;
+  --text-secondary: #526078;
+  --text-muted: #8290a5;
+
+  --accent-color: #7c3aed;
+  --accent-secondary: #0891b2;
+  --accent-light: rgba(124, 58, 237, 0.09);
+
+  --border-color: rgba(15, 23, 42, 0.1);
+  --navbar-bg: rgba(248, 250, 252, 0.9);
+
+  --gradient-primary: linear-gradient(135deg, #7c3aed, #0891b2);
+  --gradient-text: linear-gradient(90deg, #7c3aed, #0891b2);
+
+  --shadow-card: 0 15px 45px rgba(15, 23, 42, 0.06);
+  --shadow-glow: 0 0 35px rgba(124, 58, 237, 0.08);
+
+  color-scheme: light;
+}
+
+
+/* =========================================
+   4. RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* =========================================
+   5. TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+
+/* =========================================
+   6. MAIN CONTAINER
+========================================= */
+
+.container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+}
+
+section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+section:nth-of-type(even) {
+  background: var(--bg-secondary);
+}
+
+
+/* =========================================
+   7. SECTION HEADINGS
+========================================= */
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.section-subtitle {
+  display: inline-block;
+  color: var(--accent-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.section-heading h2 {
+  margin-bottom: 18px;
+}
+
+.section-heading h2 span {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.section-heading p {
+  max-width: 570px;
+  margin: auto;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   8. BUTTONS
+========================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 25px;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   9. GRADIENT TEXT
+========================================= */
+
+.gradient-text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+/* =========================================
+   10. COMMON CARDS
+========================================= */
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-glow);
+}
+
+
+/* =========================================
+   11. ICON CONTAINER
+========================================= */
+
+.icon-box {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-light);
+  color: var(--accent-color);
+  border-radius: 14px;
+}
+
+
+/* =========================================
+   12. LOADER
+========================================= */
+
+.loader-container {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.loader-icon {
+  color: var(--accent-color);
+}
+
+.loader-container p {
+  font-size: 0.9rem;
+}
+
+
+/* =========================================
+   13. SELECTION
+========================================= */
+
+::selection {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+
+/* =========================================
+   14. SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+
+/* =========================================
+   15. BACKGROUND DECORATION
+========================================= */
+
+.glow-orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  opacity: 0.08;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* =========================================
+   16. ACCESSIBILITY
+========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-secondary);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
