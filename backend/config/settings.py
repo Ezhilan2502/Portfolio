@@ -78,6 +78,10 @@ CORS_ALLOWED_ORIGINS = [
     if origin.strip()
 ]
 
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://portfolio-[a-z0-9]+-ezhil11\.vercel\.app$",
+]
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
