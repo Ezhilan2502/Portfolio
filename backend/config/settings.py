@@ -162,13 +162,12 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Collect existing portfolio images as static assets
 STATICFILES_DIRS = [
-    BASE_DIR / "media",
+    ("media", BASE_DIR / "media"),
 ]
 
-# Existing image fields will now generate /static/ URLs
-MEDIA_URL = STATIC_URL
+MEDIA_URL = "/static/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 if not DEBUG:
     STORAGES = {
         "default": {
